@@ -1,14 +1,13 @@
-// import  {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
-import Login from './components/Login/Login';
-// import Header from './components/Header/Header';
-import Nav from './components/Nav/Nav';
+import Login from './components/login/Login';
+// import Header from './components/header/Header';
+import Nav from './components/nav/Nav';
 
 function App() {
   return (
     <div className="App">
-      <Nav/>
-      <Login/>
+      <Nav/> 
+     <Login/>
     </div>
   );
 }

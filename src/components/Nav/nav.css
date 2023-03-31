@@ -8,13 +8,14 @@ nav{
     padding: 0 2rem;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
-    background: var(--color-pry-variant);
+    justify-content: space-between;
+    background: var(--color-bg);
+    z-index: 1;
 }
 
-nav .logo__disney{
+/* nav .logo__disney{
 
-}
+} */
 
 .logo__img{
     width: 80px;
@@ -24,7 +25,9 @@ nav .logo__disney{
 .navmenu{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding-inline-start: 1rem;
 }
 
 .navLinks{
@@ -37,8 +40,10 @@ nav .logo__disney{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
     height: 20px;
     padding: 0 12px;
+    /* position: relative; */
 }
 
 .navLinks li a img{
@@ -52,6 +57,43 @@ nav .logo__disney{
     font-size: 0.8125rem;
     letter-spacing: 1.42px;
     position: relative;
+    margin-left: 5px;
+}
+
+.navLinks span::after{
+    content: '';
+    width: 0;
+    opacity: 0;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background-color: var(--color-text-light);
+    transition: var(--transition);
+}
+
+.navLinks span:hover::after {
+    width: 100%;
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+.btn__login{
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid var(--color-text-light);
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+}
+
+.btn__login:hover{
+    background: var(--color-text-light);
+    color: var(--color-bg);
+    font-weight: bold;
+    border-color: transparent;
 }
 
 

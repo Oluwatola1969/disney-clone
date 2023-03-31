@@ -7,7 +7,6 @@
     background: url(../../images/login-background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: -1;
     position: relative;
 }
 
@@ -57,10 +56,10 @@
     font-size: 1.2rem;
     padding: 1rem 0;
     border-radius: .4rem;
-    cursor: auto;
+    cursor: pointer;
     margin-bottom: .5rem;
     margin-top: -3vw;
-    z-index: auto;
+    /* z-index: auto; */
 }
 
 .btn-login:hover{
@@ -81,8 +80,8 @@ background-color: #0483ee;
 /* media queeries */
 
 @media screen and (min-width:768px){
-    .cta-logo-one, .cta-logo-two{
-    }
+    /* .cta-logo-one, .cta-logo-two{
+    } */
 
  
   }
@@ -94,11 +93,8 @@ background-color: #0483ee;
     }
 
   }
-  @media screen and (max-width:479px){
-    .cta-logo-one, .cta-logo-two{
-        /* height: 100px; */
-        
+  @media screen and (max-width:479px){ */
+    .content__login{
+       padding: 80px 40px; 
     }
-
-  }
-  
+  }   

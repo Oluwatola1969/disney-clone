@@ -13,7 +13,7 @@ html{
 :root{
   --color-pry: #0063e5;
   --color-pry-variant:  #0483ee;
-  /* --color-bg:  */
+  --color-bg: #040714;
   --color-text-white:#f9f9f9;
   --color-text-light:rgb(249, 249, 249);
   --transition : all 400ms ease;
