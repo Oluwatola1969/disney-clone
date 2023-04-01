@@ -10,18 +10,41 @@ import watchlist from '../../images/watchlist-icon.svg';
 import original from '../../images/original-icon.svg';
 import { auth, provider } from "../../firebase";
 import { signInWithPopup } from "firebase/auth";
-import {useAuthState} from 'react-firebase-hooks/auth';
+// import {useAuthState} from 'react-firebase-hooks/auth';
+import {useDispatch, useSelector} from 'react-redux';
+import {selectUserName, selectUserPhoto, setUserLoginDetails} from '../features/user/userslice';
 
 const Nav = () => {
-    const handleAuth = async () =>{
-       const result = await signInWithPopup(auth, provider);
-       console.log(result);
+    const dispatch = useDispatch();
+    // const history = useHistory();
+    const userName = useSelector(selectUserName);
+    const userPhoto = useSelector(selectUserPhoto);
+
+    const handleAuth =  () =>{
+        signInWithPopup(auth, provider).then((result) =>{
+
+            setUser(result.user);
+        });
     };
+const setUser= (user) => {
+    dispatch(
+        setUserLoginDetails({
+            name: user.displayName,
+            email: user.email,
+            photo: user.photoURL,
+        })
+    )
+}
+
   return(
     <nav>
         <a href="/" className="logo__disney">
             <img src={logo} alt="disney" className="logo__img"/>
         </a>
+
+        {
+            !userName ? (<a href="#" className="btn__login" onClick={handleAuth}>LOGIN</a>) : (
+            <>
             <div className="navmenu">
                 <ul className="navLinks">
                     <li>
@@ -63,7 +86,15 @@ const Nav = () => {
                 </ul>
             </div>
 
-            <a href="#" className="btn__login" onClick={handleAuth}>LOGIN</a>
+            <a href="/" className="userImg">
+                <img src={userPhoto} alt={userName} />
+            </a>
+            </>)
+        }
+
+       
+
+            {/* <a href="#" className="btn__login" onClick={handleAuth}>LOGIN</a> */}
        
     </nav>);
 };
